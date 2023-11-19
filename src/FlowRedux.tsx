@@ -7,13 +7,12 @@ import ReactFlow, {
   EdgeChange,
   Connection,
 } from 'reactflow';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from './app/store';
 import { onNodesChange, onEdgesChange, onConnect } from './features/flow/flowSlice';
+import { useAppDispatch, useAppSelector } from './app/hooks';
 
 function Flow() {
-  const { nodes, edges } = useSelector((state: RootState) => state.flow)
-  const dispatch = useDispatch()
+  const { nodes, edges } = useAppSelector((state) => state.flow)
+  const dispatch = useAppDispatch()
 
   return (
     <div style={{ height: '100vh', width: '100vw' }}>
